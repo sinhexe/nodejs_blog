@@ -2,8 +2,13 @@ const path = require('path');
 const express = require('express');
 const { engine } = require('express-handlebars');
 const morgan = require('morgan');
+const db = require('./config/db/index');
 const app = express();
 const port = 3000;
+//connect to mongodb
+
+db.connect();
+
 //routes
 
 const route = require('./routes/index');
