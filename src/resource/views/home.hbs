@@ -1,1 +1,20 @@
-<h1>home page</h1>
+<div class="my-4">
+    <div class="row">
+        {{#each artists}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-artist-item" style="width: 18rem;">
+                <a href="/artists/{{this.slug}}">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                </a>
+                <div class="card-body">
+                    <a href="/artists/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Yo</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

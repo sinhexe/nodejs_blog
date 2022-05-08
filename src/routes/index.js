@@ -1,12 +1,11 @@
-const newsRouter = require('./news.route');
 const siteRouter = require('./site.route');
+const artistRouter = require('./artist.route');
 
 function route(app) {
     //---------GET------------//
 
-    //hostname/news
-    app.use('/news', newsRouter);
-
+    //hostname/artists
+    app.use('/artists', artistRouter);
     //hostname
     app.use('/', siteRouter);
 }

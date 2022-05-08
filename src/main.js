@@ -38,12 +38,12 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resource/views')); //config views path
+app.set('views', path.join(__dirname, 'resource', 'views')); //config views path
 
 //route init
 
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

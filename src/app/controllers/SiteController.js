@@ -1,16 +1,15 @@
 const Artist = require('../models/Artist');
+const { mutipleMongooseToObject } = require('../../util/mongoose');
 class SiteController {
     // [GET] /
-    index(req, res) {
-        Artist.find({}, function (err, artists) {
-            if (!err) {
-                res.json(artists);
-                return;
-            }
-            res.status(400).json({ error: 'Error!!!' });
-        });
-
-        // res.render('home');
+    index(req, res, next) {
+        Artist.find({})
+            .then((artists) => {
+                res.render('home', {
+                    artists: mutipleMongooseToObject(artists),
+                });
+            })
+            .catch((error) => next(error));
     }
 
     search(req, res) {
