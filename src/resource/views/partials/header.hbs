@@ -1,32 +1,35 @@
 <header>
   <!-- Navbar -->
   <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
-    <div class='container-fluid'>
-      <button
-        class='navbar-toggler'
-        type='button'
-        data-mdb-toggle='collapse'
-        data-mdb-target='#navbarExample01'
-        aria-controls='navbarExample01'
-        aria-expanded='false'
-        aria-label='Toggle navigation'
-      >
-        <i class='fas fa-bars'></i>
-      </button>
-      <div class='collapse navbar-collapse' id='navbarExample01'>
-        <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-          <li class='nav-item active'>
-            <a class='nav-link' aria-current='page' href='/'>Home</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='#'>Blog</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='#'>Link</a>
-          </li>
-        </ul>
+      <div class='container'>
+        <a class="navbar-brand" href="/">Home</a>
+        <button class='navbar-toggler' type='button' data-mdb-toggle='collapse' data-mdb-target='#navbarExample01'
+          aria-controls='navbarExample01' aria-expanded='false' aria-label='Toggle navigation'>
+          <i class='fas fa-bars'></i>
+        </button>
+
+        <div class='collapse navbar-collapse' id='navbarExample01'>
+          <ul class='navbar-nav ml-auto mb-2 mb-lg-0'>
+            <li class='nav-item'>
+              <a class='nav-link' href='#'>Blog</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img src="https://downloadlogomienphi.com/sites/default/files/logos/download-logo-vector-cammix-mien-phi.jpg" alt="cam" class="user-avatar">
+                User
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/artists/create">Create</a>
+                <a class="dropdown-item" href="/me/stored/artists">My Artists</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
   </nav>
   <!-- Navbar -->
 </header>
