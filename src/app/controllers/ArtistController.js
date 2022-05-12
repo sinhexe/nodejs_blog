@@ -1,5 +1,6 @@
 const Artist = require('../models/Artist');
 const { mongooseToObject } = require('../../util/mongoose');
+const { redirect } = require('express/lib/response');
 class ArtistController {
     // [GET]
     // /artist/:slug
@@ -45,6 +46,14 @@ class ArtistController {
     update(req, res, next) {
         Artist.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/me/stored/artists'))
+            .catch(next);
+    }
+
+    // [DELETE]
+    // artists/:id
+    delete(req, res, next) {
+        Artist.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }

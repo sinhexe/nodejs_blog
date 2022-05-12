@@ -7,6 +7,7 @@ router.get('/create', artistController.create);
 router.post('/store', artistController.store);
 router.get('/:id/edit', artistController.edit);
 router.put('/:id', artistController.update);
+router.delete('/:id', artistController.delete);
 router.get('/:slug', artistController.show);
 
 module.exports = router;
