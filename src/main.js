@@ -11,7 +11,6 @@ const port = 3000;
 db.connect();
 
 //routes
-
 const route = require('./routes/index');
 
 //static files

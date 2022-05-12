@@ -52,7 +52,23 @@ class ArtistController {
     // [DELETE]
     // artists/:id
     delete(req, res, next) {
+        // delete mongoose_delete
+        Artist.delete({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    // artists/:id/force
+    deleteForce(req, res, next) {
         Artist.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    // [PATCH]
+    // artists/:id/restore
+    restore(req, res, next) {
+        Artist.restore({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next);
     }

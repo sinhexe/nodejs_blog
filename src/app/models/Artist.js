@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const slug = require('mongoose-slug-generator');
-
-mongoose.plugin(slug);
+const mongooseDelete = require('mongoose-delete');
 
 const ObjectId = Schema.ObjectId;
 
@@ -18,5 +17,11 @@ const Artist = new Schema(
         timestamps: true,
     },
 );
+//add plugin
+mongoose.plugin(slug);
+Artist.plugin(mongooseDelete, {
+    overrideMethods: 'all',
+    deletedAt: true,
+});
 
 module.exports = mongoose.model('Artist', Artist);
