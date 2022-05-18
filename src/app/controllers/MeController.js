@@ -5,7 +5,15 @@ class MeController {
     index(req, res, next) {}
 
     storedArtists(req, res, next) {
-        Promise.all([Artist.find(), Artist.countDocumentsDeleted()])
+        let artistQuery = Artist.find({});
+
+        if (req.query.hasOwnProperty('_sort')) {
+            artistQuery = artistQuery.sort({
+                [req.query.column]: req.query.type,
+            });
+        }
+
+        Promise.all([artistQuery, Artist.countDocumentsDeleted()])
             .then(([artists, deletedCount]) =>
                 res.render('me/stored-artists', {
                     deletedCount: deletedCount,
