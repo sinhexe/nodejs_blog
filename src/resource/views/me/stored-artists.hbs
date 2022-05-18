@@ -1,12 +1,26 @@
-<div class="mt-4">
+<form name="container-form" method="POST" action="/artists/handle-form-actions" class="mt-4">
     <div>
         <h3>My Artist</h3>
-        <a href="/me/trash/artists">Recycle</a>
+        <a href="/me/trash/artists">Recycle ({{deletedCount}})</a>
+        <div class="mt-4 d-flex align-items-center">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+                <label class="form-check-label" for="checkbox-all">
+                    Select all
+                </label>
+            </div>
+            <select class="input form-control form-control-sm select-all-checkbox-options" name="actions" required>
+                <option value="">-- options --</option>
+                <option value="delete">Delete</option>
+            </select>
+
+            <button class="btn btn-primary btn-sm disabled btn-check-all-submit">Apply</button>
+        </div>
     </div>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col" colspan="2">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col" colspan="2">CreateDate</th>
@@ -15,6 +29,12 @@
         <tbody>
             {{#each artists}}
             <tr>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input artist-check-items" type="checkbox" name="artistIds[]"
+                            value="{{this._id}}">
+                    </div>
+                </td>
                 <th scope="row">{{sum @index 1}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.description}}</td>
@@ -34,7 +54,7 @@
             {{/each}}
         </tbody>
     </table>
-</div>
+</form>
 {{!-- confirm delete --}}
 <div id="delete-artist-modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -57,7 +77,7 @@
 </div>
 
 {{!-- delete hidden form--}}
- <form name="delete-artist-form" method="POST"></form>
+<form name="delete-artist-form" method="POST"></form>
 
 <script>
 
@@ -65,6 +85,10 @@
         var artistId
         var deleteArtistForm = document.forms['delete-artist-form'];
         var btnDeleteArtist = document.getElementById('btn-delete-artist');
+        var containerForm = document.forms['container-form'];
+        var checkboxAll = $('#checkbox-all');
+        var artistItemCheckbox = $('.artist-check-items');
+        var checkAllSubmitBtn = $('.btn-check-all-submit');
 
         // when dialog confirm clicked (modal)
         $('#delete-artist-modal').on('show.bs.modal', function (event) {
@@ -78,5 +102,34 @@
             deleteArtistForm.action = '/artists/' + artistId + '?_method=DELETE';
             deleteArtistForm.submit();
         }
+        //checkboxAll.click
+        checkboxAll.change(function () {
+            var isCheckedAll = $(this).prop('checked');
+            artistItemCheckbox.prop('checked', isCheckedAll);
+            renderCheckAllSubmitBtn();
+        });
+        //when artist Item Checkbox change
+        artistItemCheckbox.change(function () {
+            var isCheckedAll = artistItemCheckbox.length == $('.artist-check-items:checked').length;
+            checkboxAll.prop('checked', isCheckedAll);
+            renderCheckAllSubmitBtn();
+        })
+        // checkAll submit btn clicked
+        checkAllSubmitBtn.on('submit', function (e) {
+            var isSubmittable = !$(this).hasClass('disabled');
+            if (!isSubmittable) {
+                e.preventDefault();
+            }
+        })
+
+        // re-render Check All Submit Btn
+        function renderCheckAllSubmitBtn() {
+            var checkedCount = $('.artist-check-items:checked').length;
+            if (checkedCount > 0) {
+                checkAllSubmitBtn.removeClass('disabled');
+            } else
+                checkAllSubmitBtn.addClass('disabled');
+        }
+
     });
 </script>

@@ -1,9 +1,7 @@
 const Artist = require('../models/Artist');
 const { mongooseToObject } = require('../../util/mongoose');
-const { redirect } = require('express/lib/response');
 class ArtistController {
-    // [GET]
-    // /artist/:slug
+    // [GET] /artist/:slug
     show(req, res, next) {
         Artist.findOne({ slug: req.params.slug })
             .then((artist) => {
@@ -13,11 +11,11 @@ class ArtistController {
             })
             .catch(next);
     }
-    // /artist/create
+    // [GET] /artist/create
     create(req, res, next) {
         res.render('artists/create.hbs');
     }
-    // /artist/:id/edit
+    // [GET] /artist/:id/edit
     edit(req, res, next) {
         Artist.findById(req.params.id)
             .then((artist) =>
@@ -28,8 +26,7 @@ class ArtistController {
             .catch(next);
     }
 
-    // [POST]
-    // /artist/store
+    // [POST] /artist/store
     store(req, res, next) {
         const formData = req.body;
         formData.image = `http://img.youtube.com/vi/${req.body.videoid}/hqdefault.jpg`;
@@ -41,16 +38,27 @@ class ArtistController {
             .catch(next);
     }
 
-    // [PUT]
-    // /artists/:id
+    // [POST] /artists/handle-form-actions
+    handleFormActions(req, res, next) {
+        switch (req.body.actions) {
+            case 'delete':
+                Artist.delete({ _id: { $in: req.body.artistIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            default:
+                res.json({ message: 'Action is invalid.' });
+        }
+    }
+
+    // [PUT] /artists/:id
     update(req, res, next) {
         Artist.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/me/stored/artists'))
             .catch(next);
     }
 
-    // [DELETE]
-    // artists/:id
+    // [DELETE] /artists/:id
     delete(req, res, next) {
         // delete mongoose_delete
         Artist.delete({ _id: req.params.id })
@@ -58,15 +66,14 @@ class ArtistController {
             .catch(next);
     }
 
-    // artists/:id/force
+    // [DELETE] artists/:id/force
     deleteForce(req, res, next) {
         Artist.deleteOne({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next);
     }
 
-    // [PATCH]
-    // artists/:id/restore
+    // [PATCH] /artists/:id/restore
     restore(req, res, next) {
         Artist.restore({ _id: req.params.id })
             .then(() => res.redirect('back'))

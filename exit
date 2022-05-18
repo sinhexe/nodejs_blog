@@ -1,0 +1,101 @@
+[33mcommit 35a3054a0b9cf04c6881895d7194b484af202753[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Thu May 12 16:04:09 2022 +0700
+
+    add force delete function
+
+[33mcommit fc967694e6f62eaf9787c31c0a3c962d306c2693[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Thu May 12 13:15:12 2022 +0700
+
+    add delete function
+
+[33mcommit 6725522d3ca5cc2e3a41dbe7444e1abffe31afaa[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Thu May 12 00:37:15 2022 +0700
+
+    create add,update function
+
+[33mcommit 70a026aa209af7c0ca386613c51765747776cf3d[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sun May 8 15:58:31 2022 +0700
+
+    add artist controller, models
+
+[33mcommit ecc069c2d0f9d77a920329a5eb31025d9ef84d56[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sun May 8 00:43:07 2022 +0700
+
+    add models
+
+[33mcommit de99807a51efc2e06108c1c510a8be0e472c8988[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 23:18:50 2022 +0700
+
+    ignore husky again
+
+[33mcommit 94927cd93a80cef314f2b1a2c26be2615440d105[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 23:17:21 2022 +0700
+
+    ignore .husky
+
+[33mcommit 51800365e1afd6f1abdb7c0b5ddc916768410b65[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 23:16:21 2022 +0700
+
+    test formatcode
+
+[33mcommit c3bdc5deef64289e11ca3102fe0e1c8befff6239[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 23:15:48 2022 +0700
+
+    i prettier lint-staged husky
+
+[33mcommit fe0c8bec7a05d282fa3b416ca4bd2a3adc97e2f5[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 16:02:23 2022 +0700
+
+    create routes, app/controllers
+
+[33mcommit 848c696e47281eee28db9b0434c28c7d03409cf7[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 12:30:14 2022 +0700
+
+    POST
+
+[33mcommit 720c9835c7e98dfde0132557b46b079983f00e87[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 10:59:36 2022 +0700
+
+    Bootrap 4
+
+[33mcommit 2f977ac9fc9be3bde7694a11b4ba84a626ca7709[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 10:56:37 2022 +0700
+
+    ignore css file
+
+[33mcommit f89ac2b66715b16002c79b1e2a3df98c22dc7e49[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Sat May 7 00:20:40 2022 +0700
+
+    config static files
+
+[33mcommit 1a4bc88f5852c5f7fbf8a3a77b59727eb6e3f1bf[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Fri May 6 21:10:08 2022 +0700
+
+    ignore node_modules
+
+[33mcommit 62636b7fd14cd6138c5a5b8964ad98ef2c6236c0[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Fri May 6 21:03:26 2022 +0700
+
+    second commit
+
+[33mcommit e996278c3e5b7fcb4b124eea5e65acec63c5c46d[m
+Author: sinhexe <sinhexe@gmail.com>
+Date:   Fri May 6 20:57:45 2022 +0700
+
+    Initial commit
